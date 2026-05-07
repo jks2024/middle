@@ -1,6 +1,7 @@
 package com.human.middle.dao;
 
 import com.human.middle.dto.Member;
+import com.human.middle.dto.response.MemberRes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -56,10 +57,10 @@ public class MemberDao {
         return count > 0;
     }
     // 전체 회원 조회
-    public List<Member> findAll() {
+    public List<MemberRes> findAll() {
         String sql = "SELECT * FROM member ORDER BY id DESC";
         return jdbcTemplate.query(sql,
-                BeanPropertyRowMapper.newInstance(Member.class));
+                BeanPropertyRowMapper.newInstance(MemberRes.class));
     }
 
 }

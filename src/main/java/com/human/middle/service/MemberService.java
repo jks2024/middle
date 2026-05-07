@@ -6,6 +6,7 @@ import com.human.middle.dao.MemberDao;
 import com.human.middle.dto.Member;
 import com.human.middle.dto.request.LoginReq;
 import com.human.middle.dto.request.MemberRegReq;
+import com.human.middle.dto.response.MemberRes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -38,7 +39,7 @@ public class MemberService {
                 member.getPassword());  // DB에 저장된 BCrypt 해시값
     }
     // 전체 회원 조회
-    public List<Member> findAll() {
+    public List<MemberRes> findAll() {
         return memberDao.findAll();
     }
 
