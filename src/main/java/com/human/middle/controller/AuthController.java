@@ -22,12 +22,11 @@ public class AuthController {
         else return ResponseEntity.ok("회원 가입 실패");
     }
 
-    // 로그인
-    @PostMapping("/login")
-    public ResponseEntity<?> login (@Valid @RequestBody LoginReq req) {
-        boolean success = memberService.login(req);
-        if (success) return ResponseEntity.ok("로그인 가입 성공");
-        else return ResponseEntity.ok("로그인 가입 실패");
+    // POST /auth/login → SecurityConfig의 loginProcessingUrl이 처리
+    // ↓ GET만 남김 (Thymeleaf 사용 시 로그인 페이지 반환용)
+    @GetMapping("/login")
+    public ResponseEntity<?> loginPage() {
+        return ResponseEntity.ok("로그인 페이지");
     }
 
     // 회원 전체 조회

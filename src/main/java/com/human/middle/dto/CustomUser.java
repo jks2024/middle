@@ -6,14 +6,15 @@ import org.springframework.security.core.userdetails.User;
 import java.util.Collection;
 
 public class CustomUser extends User {
-    private final Long memberId; // PK를 저장할 필드
+    private final Long memberId;  // 세션에 memberId를 함께 저장
 
-    public CustomUser(Long memberId, String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        super(username, password, authorities);
-        this.memberId = memberId;
+    public CustomUser(Member member, Collection<? extends GrantedAuthority> authorities) {
+        super(member.getUsername(), member.getPassword(), authorities);
+        this.memberId = member.getId();
     }
 
     public Long getMemberId() {
         return memberId;
     }
+
 }
