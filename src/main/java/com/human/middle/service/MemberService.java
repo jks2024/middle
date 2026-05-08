@@ -39,7 +39,7 @@ public class MemberService {
                 member.getPassword());  // DB에 저장된 BCrypt 해시값
     }
     // 전체 회원 조회
-    public List<MemberRes> findAll() {
+    public List<Member> findAll() {
         return memberDao.findAll();
     }
 

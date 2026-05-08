@@ -57,10 +57,10 @@ public class MemberDao {
         return count > 0;
     }
     // 전체 회원 조회
-    public List<MemberRes> findAll() {
+    public List<Member> findAll() {
         String sql = "SELECT * FROM member ORDER BY id DESC";
         return jdbcTemplate.query(sql,
-                BeanPropertyRowMapper.newInstance(MemberRes.class));
+                BeanPropertyRowMapper.newInstance(Member.class));
     }
 
 }
